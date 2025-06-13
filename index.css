@@ -1,0 +1,211 @@
+/* ===== Base Styles ===== */
+:root {
+  --primary-color: #00e5ff;
+  --primary-dark: #00bcd4;
+  --background-gradient: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  --text-light: #e0f7fa;
+  --text-muted: #b2ebf2;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(0, 229, 255, 0.15);
+  --border-radius: 14px;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--background-gradient);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  line-height: 1.6;
+}
+
+/* ===== Typography ===== */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--primary-color), #80deea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.subtext {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ===== Layout Components ===== */
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(8px);
+  margin-bottom: 2rem;
+}
+
+/* ===== Reference Text ===== */
+.reference {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: white;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* ===== Input Area ===== */
+textarea#input {
+  width: 100%;
+  min-height: 180px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-light);
+  resize: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+textarea#input:focus {
+  box-shadow: 0 0 0 2px var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+textarea#input::placeholder {
+  color: rgba(224, 247, 250, 0.6);
+}
+
+/* ===== Stats Display ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.stats p {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+  padding: 1rem;
+  text-align: center;
+}
+
+.stats p:hover {
+  transform: scale(1.05);
+  background-color: var(--card-hover);
+}
+
+.stats p span:first-child {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stats p span:last-child {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+  
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats p {
+    width: 100%;
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .stats p {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.reference-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 120px;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 1rem;
+    color: #eee;
+}
+
+/* Character colors */
+.correct {
+    color: #4caf50;
+}
+.incorrect {
+    color: #f44336;
+}
+.untyped {
+    color: #bbb;
+}

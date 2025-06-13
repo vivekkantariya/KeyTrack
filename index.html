@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyTrack</title>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>KeyTrack</h1>
+        <p class="subtext">Check your typing speed and accuracy</p>
+
+        <div class="container">
+            <label for="reference">Type this text:</label>
+            <div class="reference" id="referenceText"></div>
+
+            <label for="userinput">Start typing below:</label>
+            <textarea id="input" placeholder="Start typing here..."></textarea>
+
+        </div>
+        <div class="stats">
+            <p><span>Time</span><br><span id="time">0s</span></p>
+            <p><span>WPM</span><br><span id="wordsperminn">0</span></p>
+            <p><span>CPM</span><br><span id="charpermin">0</span></p>
+            <p><span>Accuracy</span><br><span id="accuracy">0%</span></p>
+        </div>
+</body>
+<script src="keytrack.js"></script>
+
+</html>
