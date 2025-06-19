@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KeyTrack – Scoreboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="scoreboard-wrapper">
+    <h1>🏆 KeyTrack Scoreboard</h1>
+    <p class="subtext">Your past performances in style</p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>WPM</th>
+            <th>CPM</th>
+            <th>Accuracy</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="scoreTableBody">
+          <!-- JS injects rows here -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="controls">
+      <button onclick="goHome()">Back to Home</button>
+      <button onclick="clearScores()">Clear All</button>
+    </div>
+  </div>
+
+  <script>
+    const tableBody = document.getElementById("scoreTableBody");
+    let scores = JSON.parse(localStorage.getItem("keytrackScores")) || [];
+
+    scores = scores.sort((a, b) => b.wpm - a.wpm); // High WPM first
+
+    scores.forEach((score, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>#${index + 1}</td>
+        <td>${score.name}</td>
+        <td>${score.wpm}</td>
+        <td>${score.cpm}</td>
+        <td>${score.accuracy}%</td>
+        <td>${score.date}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    function clearScores() {
+      if (confirm("Are you sure you want to clear all scores?")) {
+        localStorage.removeItem("keytrackScores");
+        window.location.reload();
+      }
+    }
+  </script>
+</body>
+</html>

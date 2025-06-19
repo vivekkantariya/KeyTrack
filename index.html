@@ -23,27 +23,22 @@
 
         </div>
         <div class="stats">
-            <p id="timer">Time: 60s</p>
-            <p id="wpm">WPM: 0</p>
-            <p id="cpm">CPM: 0</p>
-            <p id="accuracy">Accuracy: 100%</p>
+            <p><span class="title">Time Left</span><span class="value" id="timer">60s</span></p>
+            <p><span class="title">Words Per Minute</span><span class="value" id="wpm">0</span></p>
+            <p><span class="title">Chars Per Minute</span><span class="value" id="cpm">0</span></p>
+            <p><span class="title">Accuracy</span><span class="value" id="accuracy">100%</span></p>
         </div>
 
         <button id="restartBtn">Restart</button>
 
-        <!-- Popup when time ends -->
-        <div class="popup" id="resultPopup">
-            <div class="popup-content">
-                <h2>Test Finished</h2>
+        <div id="resultModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Time's Up!</h2>
                 <p id="finalStats"></p>
-                <label for="userName">Enter your name:</label>
-                <input type="text" id="userName" placeholder="Your name..." />
-                <label for="finalText">What you typed:</label>
-                <textarea id="finalText" readonly></textarea>
-                <button onclick="restartTest()">Restart Test</button>
+                <input type="text" id="username" placeholder="Enter your name" />
+                <button id="saveScore">Save Score</button>
             </div>
         </div>
-
 
 </body>
 <script src="keytrack.js"></script>
